@@ -20,9 +20,9 @@ export const Home = () => {
 
   function handlePress(){
     setLoad(true)
-    setTimeout(()=>{
-      setLoad(false)
-    }, 1000)
+    clearTimeout(timeoutId)
+    const time = setTimeout(() => setLoad(false), 1000)
+    setTimeoutId(time)
   }
 
   return (
