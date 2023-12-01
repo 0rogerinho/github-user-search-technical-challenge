@@ -4,6 +4,10 @@ import React from 'react';
 import {ActivityIndicator, Platform } from 'react-native';
 // StatusBar
 import { StatusBar } from 'expo-status-bar';
+// React Navigation
+import { useNavigation } from '@react-navigation/native';
+// Types
+import { INavigationProps } from '../../@types';
 // Icons
 import Ionicons from '@expo/vector-icons/Ionicons';
 // Components
@@ -18,10 +22,12 @@ export const Home = () => {
   const [load, setLoad] = React.useState<boolean>(false);
   const [timeoutId, setTimeoutId] = React.useState< NodeJS.Timeout | number>(0);
 
+  const navigation = useNavigation<INavigationProps>();
+
   function handlePress(){
     setLoad(true)
     clearTimeout(timeoutId)
-    const time = setTimeout(() => setLoad(false), 1000)
+    const time = setTimeout(() => {setLoad(false), navigation.navigate('User')}, 1000)
     setTimeoutId(time)
   }
 

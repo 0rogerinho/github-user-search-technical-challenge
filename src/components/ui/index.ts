@@ -1,1 +1,3 @@
-export * from './RecentCard/RecentCard'
+export * from './recent-card/RecentCard'
+
+export * from './repository-card/RepositoryCard'
