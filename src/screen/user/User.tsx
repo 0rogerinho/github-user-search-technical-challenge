@@ -3,58 +3,17 @@ import React from 'react';
 // React Native
 import { Modal, FlatList, Platform } from 'react-native';
 // React Navigation
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 // Icons
 import { Feather, Entypo } from '@expo/vector-icons';
 // Types
-import { INavigationProps } from '../../@types';
+import { INavigationProps, IUserRouteProps } from '../../@types';
 // Colors Config
 import { colors } from '../../../themesConfig';
 // Components
 import { ModalLink, RepositoryCard } from '../../components';
 // Styles
-import * as S from './styles'
-
-
-const dataUser ={
-      id: 254,
-      name: "Natan Silva figueredo",
-      login: "NataSilva",
-      location: "Rio de Janeiro",
-      avatar_url: "not defined",
-      public_repos: 50,
-      followers: 11277,
-      following: 38,
-      repos_url: '',
-    }
-  
-const dataRepos = [
-  {
-    name: 'GitHub-Search',
-    language: null,
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    created_at: '2023-11-30',
-    updated_at: '2023-11-30',
-    html_url: '',
-  },
-  {
-    name: 'GitHub-Search',
-    language: 'typescript',
-    description: null,
-    created_at: '2023-11-30',
-    updated_at: '2023-11-30',
-    html_url: '',
-  },
-  {
-    name: 'GitHub-Search',
-    language: 'typescript',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    created_at: '2023-11-30',
-    updated_at: '2023-11-30',
-    html_url: '',
-  }
-]
-
+import * as S from './styles';
 
 const android = Platform.OS === 'android';
 
@@ -68,7 +27,7 @@ interface IReposModalProps {
   link: string;
 }
 
-const Statics = ({ title, text}: IStatics) => (
+const Statics = ({ title, text }: IStatics) => (
   <S.ViewStatic>
     <S.Title>{title}</S.Title>
     <S.Text>{text}</S.Text>
@@ -83,8 +42,12 @@ export const User = () => {
 
   const navigation = useNavigation<INavigationProps>();
 
-  async function handleReturn(){
-    navigation.navigate('Home')
+  const {
+    params: { dataUser, dataRepos },
+  } = useRoute<IUserRouteProps>();
+
+  async function handleReturn() {
+    navigation.navigate('Home');
   }
 
   async function handleShowModal(index: number) {
@@ -103,25 +66,27 @@ export const User = () => {
 
         <S.ViewCard>
           <S.ViewCardUser>
-            <S.Avatar source={require('../../../assets/favicon.png')} />
+            <S.Avatar source={{ uri: dataUser.avatar_url }} />
             <S.TextName ellipsizeMode="tail" numberOfLines={2}>
               {dataUser.name ?? 'No Name'}
             </S.TextName>
             <S.View>
-            <S.TextLogin ellipsizeMode="tail" numberOfLines={1}>@{dataUser.login}</S.TextLogin>
-            <S.ViewRowGap>
-              <Feather name="map-pin" size={16} color="white" />
-              <S.TextLocation ellipsizeMode="tail" numberOfLines={1}>
-                {!dataUser.location ? 'No Location' : dataUser.location}
-              </S.TextLocation>
-            </S.ViewRowGap>
+              <S.TextLogin ellipsizeMode="tail" numberOfLines={1}>
+                @{dataUser.login}
+              </S.TextLogin>
+              <S.ViewRowGap>
+                <Feather name="map-pin" size={16} color="white" />
+                <S.TextLocation ellipsizeMode="tail" numberOfLines={1}>
+                  {!dataUser.location ? 'No Location' : dataUser.location}
+                </S.TextLocation>
+              </S.ViewRowGap>
             </S.View>
           </S.ViewCardUser>
 
           <S.ViewStatics>
-            <Statics title='Repositories' text={dataUser.public_repos} />
-            <Statics title='Followers' text={dataUser.followers} />
-            <Statics title='Following' text={dataUser.following} />
+            <Statics title="Repositories" text={dataUser.public_repos} />
+            <Statics title="Followers" text={dataUser.followers} />
+            <Statics title="Following" text={dataUser.following} />
           </S.ViewStatics>
 
           <S.ViewColumn>
@@ -145,9 +110,9 @@ export const User = () => {
             />
           )}
         </S.ViewCard>
-      <S.TouchableOpacityReturn onPress={handleReturn}>
+        <S.TouchableOpacityReturn onPress={handleReturn}>
           <S.Title>Return</S.Title>
-      </S.TouchableOpacityReturn>
+        </S.TouchableOpacityReturn>
       </S.MainView>
 
       {modalRepo && (
