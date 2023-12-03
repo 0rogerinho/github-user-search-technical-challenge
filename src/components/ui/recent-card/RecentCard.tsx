@@ -2,20 +2,33 @@
 import React from 'react';
 // React Native
 import { TouchableOpacity } from 'react-native';
+// React Navigation
+import { useNavigation } from '@react-navigation/native';
 // Icons
 import { Feather } from '@expo/vector-icons';
 // Types
-import { IUser } from '../../../@types';
+import { INavigationDataProps, IUser } from '../../../@types';
+// Service
+import { getUserRepos } from '../../../services/api';
 // styles
 import * as S from './styles'
-
 
 export const RecentCard = (props: IUser) => {
   const [load, setLoad] = React.useState(false);
 
+  const navigation = useNavigation<INavigationDataProps>();
+
   const handlePress = React.useCallback(async () => {
     setLoad(true);
-    setTimeout(()=>setLoad(false), 1000)
+    try {
+      const dataRepos =  await getUserRepos(props.repos_url)
+      navigation.navigate('User', {
+        dataUser: props,
+        dataRepos: dataRepos,
+      });
+    } finally {
+      setLoad(false);
+    }
   }, []);
 
   return (
@@ -23,7 +36,7 @@ export const RecentCard = (props: IUser) => {
       <S.MainView>
         {!load && (
           <>
-            <S.Avatar source={require('../../../../assets/favicon.png')} />
+            <S.Avatar source={{ uri: props.avatar_url }} />
             <S.TextName ellipsizeMode="tail" numberOfLines={1}>
               {props.name ?? 'No Name'}
             </S.TextName>

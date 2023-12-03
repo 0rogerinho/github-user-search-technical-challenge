@@ -10,6 +10,8 @@ import { Feather, Entypo } from '@expo/vector-icons';
 import { INavigationProps, IUserRouteProps } from '../../@types';
 // Colors Config
 import { colors } from '../../../themesConfig';
+//hooks
+import { useStorage } from '../../hooks';
 // Components
 import { ModalLink, RepositoryCard } from '../../components';
 // Styles
@@ -41,12 +43,16 @@ export const User = () => {
   );
 
   const navigation = useNavigation<INavigationProps>();
-
+  
   const {
     params: { dataUser, dataRepos },
   } = useRoute<IUserRouteProps>();
+  console.log(dataRepos);
+
+  const { saveUser } = useStorage();
 
   async function handleReturn() {
+    await saveUser('@user', dataUser);
     navigation.navigate('Home');
   }
 

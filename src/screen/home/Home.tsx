@@ -29,11 +29,8 @@ const android = Platform.OS === 'android';
 export const Home = () => {
   const [search, setSearch] = React.useState<string>('');
   const [load, setLoad] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<IErrorProps>({
-    message: '',
-    status: false,
-  });
-  const [timeoutId, setTimeoutId] = React.useState<NodeJS.Timeout | number>(0);
+  const [error, setError] = React.useState<IErrorProps>({message: '',status: false,});
+  const [timeoutId, setTimeoutId] = React.useState< NodeJS.Timeout | number>(0);
 
   const useNavigate = useNavigation<INavigationDataProps>();
 
@@ -59,14 +56,11 @@ export const Home = () => {
     } finally {
       setSearch('');
       setLoad(false);
-      clearTimeout(timeoutId);
-      const time = setTimeout(() => {
-        setError({ message: '', status: false });
-      }, 4000);
-      setTimeoutId(time);
+      clearTimeout(timeoutId)
+      const time = setTimeout(() => {setError({message: '',status: false,})}, 4000)
+      setTimeoutId(time)
     }
   }, [search]);
-
   return (
     <S.SafeAreaView android={android}>
       <S.ViewField>

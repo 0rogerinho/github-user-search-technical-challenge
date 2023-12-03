@@ -1,50 +1,32 @@
 import React from 'react';  
 // React Native
-import { FlatList } from 'react-native';   
+import { FlatList } from 'react-native';  
+// React Navigation
+import { useIsFocused } from '@react-navigation/native';  
+// Types
+import { IUser } from '../../@types';
+// Hooks
+import { useStorage } from '../../hooks';
 // ui
 import { RecentCard } from '../ui';
 // Styles
 import * as S from './styles'
 
-
-const dataUser = [
-{
-    id: 254,
-    name: "Natan Silva figueredo",
-    login: "NataSilva",
-    location: "Rio de Janeiro",
-    avatar_url: "not defined",
-    public_repos: 50,
-    followers: 11277,
-    following: 38,
-    repos_url: '',
-  },
-  {
-    id: 255,
-    name: "Natan Silva figueredo",
-    login: "NataSilva",
-    location: "Rio de Janeiro",
-    avatar_url: "not defined",
-    public_repos: 50,
-    followers: 11277,
-    following: 38,
-    repos_url: '',
-  },
-  {
-    id: 256,
-    name: "Natan Silva figueredo",
-    login: "NataSilva",
-    location: "Rio de Janeiro",
-    avatar_url: "not defined",
-    public_repos: 50,
-    followers: 11277,
-    following: 38,
-    repos_url: '',
-  }
-]
-
 export const Recent = () => {
-  
+  const [dataUser, setDataUser] = React.useState<IUser[] | null>(null);
+
+  const { getUser } = useStorage();
+
+  const focus = useIsFocused();
+
+  React.useEffect(() => {
+    async function test() {
+      const data = await getUser('@user');
+      setDataUser(data);
+    }
+    test();
+  }, [focus]);
+
   return (
     <S.MainView>
       <S.Text>Recent:</S.Text>
