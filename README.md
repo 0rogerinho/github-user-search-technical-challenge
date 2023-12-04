@@ -7,6 +7,9 @@ https://youtube.com/shorts/uMJ90ypfd04?feature=share
 
 ### Layout 
 
+Figma: [Layout Figma Search Github User](https://www.figma.com/file/4yeXuWGDjdqocKQzizDUcX/Search-Github-User?type=design&node-id=0%3A1&mode=design&t=jCxqnXiXgC49KoDv-1)
+
+
 ![Layout_Home](./assets/layout-home.png) ![Layout_Home](./assets/layout-user.png)
 
 
