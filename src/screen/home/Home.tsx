@@ -13,7 +13,7 @@ import { INavigationDataProps, IUser } from '../../@types';
 // Icons
 import Ionicons from '@expo/vector-icons/Ionicons';
 // Services
-import { getUserData, getUserRepos } from '../../services/api';
+import { getUserData, getUserRepos } from '../../services';
 // Components
 import { Recent } from '../../components';
 // styles

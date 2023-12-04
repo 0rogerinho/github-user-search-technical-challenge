@@ -9,7 +9,7 @@ import { Feather } from '@expo/vector-icons';
 // Types
 import { INavigationDataProps, IUser } from '../../../@types';
 // Service
-import { getUserRepos } from '../../../services/api';
+import { getUserRepos } from '../../../services';
 // styles
 import * as S from './styles'
 
