@@ -2,6 +2,10 @@
 
 Bem-vindo ao Search Github User! Este repositório contém o código fonte e os recursos relacionados à interface do usuário do projeto.
 
+### Instalar
+
+[Android](https://expo.dev/artifacts/eas/3Vx4BeazgMPh7fSxw83ZpQ.apk)
+
 ### Demostrativo do aplicativo
 https://youtube.com/shorts/uMJ90ypfd04?feature=share
 
