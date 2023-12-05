@@ -1,6 +1,6 @@
-# APP Search Github User
+# APP Github Finder
 
-Bem-vindo ao Search Github User! Este repositório contém o código fonte e os recursos relacionados à interface do usuário do projeto.
+Bem-vindo ao Github Finder! Este repositório contém o código fonte e os recursos relacionados à interface do usuário do projeto.
 
 ### Instalar
 

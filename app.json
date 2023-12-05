@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "search-user-github",
-    "slug": "search-github-user",
+    "name": "github-finder",
+    "slug": "GHF",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#141D2F"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -21,7 +21,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#141D2F"
       },
       "package": "com.devrogerinho.searchgithubuser"
     },
