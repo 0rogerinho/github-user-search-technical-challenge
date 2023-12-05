@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "search-user-github",
-    "slug": "search-user-github",
+    "slug": "search-github-user",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devrogerinho.searchgithubuser"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.devrogerinho.searchgithubuser"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f916641a-f48e-4333-9d8a-d22925acf378"
+      }
+    },
+    "owner": "devrogerinho"
   }
 }

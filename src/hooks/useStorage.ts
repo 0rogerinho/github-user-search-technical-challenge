@@ -3,7 +3,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Types
 import { IUser } from '../@types';
 
-
 export const useStorage = () => {
   const getUser = async (key:string) => {
     try {
@@ -27,10 +26,6 @@ export const useStorage = () => {
       if(!user.some((data)=> data.login === value.login)){
         user.unshift(value)
       }
-
-      console.log(user.length === 9);
-
-       console.log(user.map(({login})=> login))
       
       const newUser =  user
 

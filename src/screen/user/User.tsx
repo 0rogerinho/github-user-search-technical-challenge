@@ -47,7 +47,6 @@ export const User = () => {
   const {
     params: { dataUser, dataRepos },
   } = useRoute<IUserRouteProps>();
-  console.log(dataRepos);
 
   const { saveUser } = useStorage();
 
