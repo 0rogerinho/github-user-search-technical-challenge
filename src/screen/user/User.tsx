@@ -94,15 +94,14 @@ export const User = () => {
             <Statics title="Following" text={dataUser.following} />
           </S.ViewStatics>
 
-          <S.ViewColumn>
             <S.ViewBoxRepos>
               <Entypo name="book" size={20} color={colors.primary} />
               <S.Title>Repositories</S.Title>
             </S.ViewBoxRepos>
-          </S.ViewColumn>
+            
           {dataRepos && (
             <FlatList
-              style={{ maxHeight: 480 }}
+              style={{}}
               data={dataRepos}
               renderItem={(data) => (
                 <S.TouchableOpacity

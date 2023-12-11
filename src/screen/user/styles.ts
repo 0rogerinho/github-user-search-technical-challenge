@@ -6,23 +6,20 @@ import { colors } from "../../../themesConfig";
 export const SafeAreaView = styled.SafeAreaView<{ android: boolean }>`
  flex: 1;
  background-color: ${colors.background};
- padding-top: ${(android) => android ? '80px' : '20px'};
+ padding-top: ${({android}) => android ? '4%' : '10%'};
  align-items: center;
  gap: 20px;
 `;
 
 export const MainView = styled.View`
-  width: 95%;
-  gap: 8px;
+  flex: 1;
+  margin: 12px 10px 0px 10px;
+  gap: 5px;
 `;
 
 export const View = styled.View`
-  width: 125px;
+  flex: 1;
   gap: 8px;
-`;
-
-export const ViewColumn = styled.View`
-  width: 100%;
 `;
 
 export const Title = styled.Text`
@@ -33,11 +30,10 @@ export const Title = styled.Text`
 
 export const Text = styled.Text`
   color: white;
-  
 `;
 
 export const ViewCard = styled.View`
-  max-height: 89%;
+  flex: 1;
   background-color: ${colors.backgroundSecondary};
   border-radius: 10px;
   align-items: center;
@@ -59,7 +55,7 @@ export const Avatar = styled.Image`
 `;
 
 export const TextName = styled.Text`
-  max-width: 110px;
+  flex: 1;
   font-size: 18px;
   font-weight: 600;
   color: white;
@@ -76,6 +72,7 @@ export const ViewRowGap = styled.View`
 `;
 
 export const TextLocation = styled.Text`
+  flex: 1;
   color: white;
 `;
 
@@ -110,12 +107,12 @@ export const TouchableOpacity = styled.TouchableOpacity`
 export const TouchableOpacityReturn = styled.TouchableOpacity`
   width: 50%;
   margin:  auto;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
+  padding: 10px 50px;
   background-color: ${colors.primary};
-  border-radius: 10px;
-  margin-top: 10px;
+  border-radius: 5px;
+  margin-top: 4px;
+  margin-bottom: 5px;
   gap: 5px;
 `;

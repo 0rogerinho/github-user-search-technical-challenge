@@ -29,8 +29,11 @@ const android = Platform.OS === 'android';
 export const Home = () => {
   const [search, setSearch] = React.useState<string>('');
   const [load, setLoad] = React.useState<boolean>(false);
-  const [error, setError] = React.useState<IErrorProps>({message: '',status: false,});
-  const [timeoutId, setTimeoutId] = React.useState< NodeJS.Timeout | number>(0);
+  const [error, setError] = React.useState<IErrorProps>({
+    message: '',
+    status: false,
+  });
+  const [timeoutId, setTimeoutId] = React.useState<NodeJS.Timeout | number>(0);
 
   const useNavigate = useNavigation<INavigationDataProps>();
 
@@ -56,24 +59,31 @@ export const Home = () => {
     } finally {
       setSearch('');
       setLoad(false);
-      clearTimeout(timeoutId)
-      const time = setTimeout(() => {setError({message: '',status: false,})}, 4000)
-      setTimeoutId(time)
+      clearTimeout(timeoutId);
+      const time = setTimeout(() => {
+        setError({ message: '', status: false });
+      }, 4000);
+      setTimeoutId(time);
     }
   }, [search]);
   return (
     <S.SafeAreaView android={android}>
       <S.ViewField>
-        <S.Separator>
-          <Ionicons name="search" size={28} color="#0079FF" />
-          <S.TextField
-            value={search}
-            onChangeText={setSearch}
-            placeholder="Search GitHub Username..."
-            placeholderTextColor="#768099"
-          />
-          <Toast visible={error.status}>{error.message}</Toast>
-        </S.Separator>
+        <Ionicons name="search" size={28} color="#FFF" />
+        <S.TextField
+          value={search}
+          onChangeText={setSearch}
+          placeholder="Search GitHub Username..."
+          placeholderTextColor="#BBC3D8"
+        />
+        <Toast
+          backgroundColor="red"
+          containerStyle={{padding: 10}}
+          textStyle={{ fontSize: 20 }}
+          visible={error.status}
+        >
+          {error.message}
+        </Toast>
         <S.ButtonSearch
           data={search === ''}
           disabled={search === ''}
@@ -82,7 +92,7 @@ export const Home = () => {
           {load ? (
             <ActivityIndicator color="white" />
           ) : (
-            <S.TextSearch>Search</S.TextSearch>
+            <S.TextSearch>SEARCH</S.TextSearch>
           )}
         </S.ButtonSearch>
       </S.ViewField>

@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "github-finder",
-    "slug": "GHF",
-    "version": "1.0.0",
+    "slug": "search-github-user",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",

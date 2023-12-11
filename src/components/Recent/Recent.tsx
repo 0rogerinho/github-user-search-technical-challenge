@@ -29,7 +29,8 @@ export const Recent = () => {
 
   return (
     <S.MainView>
-      <S.Text>Recent:</S.Text>
+      <S.Title>Recent:</S.Title>
+      { dataUser && dataUser.length === 0 && <S.Text>Search for a user</S.Text>}
       <FlatList
         data={dataUser}
         renderItem={(data) => (

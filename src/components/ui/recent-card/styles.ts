@@ -27,24 +27,25 @@ export const Avatar = styled.Image`
 `;
 
 export const TextName = styled.Text`
-  width: 100px;
+  flex: 1;
   font-size: 12px;
   font-weight: 600;
   color: white;
 `;
 export const TextLogin = styled.Text`
-  width: 80px;
+  flex: 1;
   font-size: 14px;
   color: ${colors.primary};
 `;
 export const View = styled.View`
+  flex: 1;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 `;
 
 export const Text = styled.Text`
-  width: 70px;
+  width: 70%;
   font-size: 12px;
   color: white;
 `;
