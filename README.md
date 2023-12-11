@@ -4,7 +4,7 @@ Bem-vindo ao Github Finder! Este repositório contém o código fonte e os recur
 
 ### Instalar
 
-[Android](https://expo.dev/artifacts/eas/3Vx4BeazgMPh7fSxw83ZpQ.apk)
+[Android]:(https://expo.dev/artifacts/eas/3Vx4BeazgMPh7fSxw83ZpQ.apk)
 
 ### Demostrativo do aplicativo
 https://youtube.com/shorts/uMJ90ypfd04?feature=share
